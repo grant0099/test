@@ -1,0 +1,108 @@
+.font1 {
+    color: black !important;
+    font-size: 18px !important;
+}
+
+.font2 {
+    color: black !important;
+    font-size: 24px !important;
+}
+
+.font3 {
+    font-size: 14px !important;
+    color: rgba(0, 0, 0, 0.5) !important;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.learnMoreButton {
+    width: 85%;
+    height: 10%;
+    padding-top: 5%;
+    margin-top: 5%;
+}
+
+.productImg {
+    width: 100%;
+}
+
+.productImg2 {
+    width: 80%;
+}
+
+.footer {
+    width: 100%;
+    height: 100%;
+    background-color: #3577A0;
+}
+
+.footerFont {
+    color: rgba(255, 255, 255, 1) !important;
+    font-family: Roboto;
+    font-weight: Regular;
+    font-size: 14px;
+    opacity: 1;
+    text-align: left;
+}
+
+.otherFooter {
+    width: 100%;
+    height: 880px;
+    background: url("../assets/images/home/footer.png");
+}
+
+.v155_262 {
+    color: #3577A0;
+    font-family: Noto Sans TC;
+    font-weight: Bold;
+    font-size: 42px;
+    opacity: 1;
+    margin-bottom: 0;
+}
+
+.v155_254 {
+    width: 100%;
+    height: 604px;
+    background: url("../assets/images/home/v155_254.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: scroll;
+    opacity: 1;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    background: -moz-linear-gradient(top,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 1)),
+        url("../assets/images/home/v155_254.jpg") center bottom no-repeat;
+    background: -webkit-linear-gradient(top,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 1)),
+        url("../assets/images/home/v155_254.jpg") center bottom no-repeat;
+}
+
+.google_img {
+    width: 18px;
+    height: 18px;
+    margin-right: 24px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+.google_text {
+    color: #000000;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+}
+
+.google_div {
+    display: inline-block;
+    cursor: pointer;
+    background: #ffffff;
+    width: 185px;
+    height: 40px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+}
