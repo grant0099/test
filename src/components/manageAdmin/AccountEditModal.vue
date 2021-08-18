@@ -2,6 +2,7 @@
   <b-modal ref="editModal" id="editModal" title="觀看帳號">
     <template #modal-footer="{ cancel }">
       <b-button style="color: white" variant="danger" @click="cancel()">取消</b-button>
+      <b-button style="color: white" variant="success" @click="save()">確定</b-button>
     </template>
     <b-tabs content-class="mt-3" fill>
       <b-container>
@@ -34,7 +35,9 @@ export default {
     memberObj: Object,
   },
   methods: {
-    save() {},
+    save() {
+      this.$store.dispatch("updateMember", this.memberObj);
+    },
   },
 };
 </script>
