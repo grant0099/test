@@ -20,12 +20,14 @@ export default new Vuex.Store({
       state.items = items;
     },
     updateMember(state, memberItem) {
-      for (let i = 0; i < state.items.length; i++) {
-        if (state.items[i].id === memberItem.id) {
-          state.items.splice(i, 1, memberItem);
+      const copyItems = JSON.parse(JSON.stringify(state.items));
+      for (let i = 0; i < copyItems.length; i++) {
+        if (copyItems[i].id === memberItem.id) {
+          copyItems.splice(i, 1, memberItem);
           break;
         }
       }
+      state.items = JSON.parse(JSON.stringify(copyItems));
     },
   },
   getters: {
@@ -53,14 +55,7 @@ export default new Vuex.Store({
         });
     },
     updateMember(context, memberItem) {
-      console.log(memberItem);
       context.commit("updateMember", memberItem);
-      //       account: "Member-0"
-      // createTime: "2021/01/12 14:37:20"
-      // enable: true
-      // id: 0
-      // updateTime: "2021/01/12 14:37:20
-      // id: 0
     },
   },
   modules: {},

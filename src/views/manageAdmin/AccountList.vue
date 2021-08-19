@@ -52,11 +52,13 @@
           <div class="fontFormat">{{ row.item.account }}</div>
         </template>
         <template #cell(enable)="row">
-          <b-badge v-if="!row.item.enable" variant="danger">已停用</b-badge>
-          <b-badge v-else variant="success">使用中</b-badge>
+          <span v-show="!row.item.enable"><b-badge variant="danger">已停用</b-badge></span>
+          <span v-show="row.item.enable"> <b-badge variant="success">使用中</b-badge></span>
         </template>
         <template #cell(action)="row">
-          <b-button :ref="row.item.id" variant="primary" size="sm" @click="edit(row.item.id)" v-b-modal.editModal>觀看</b-button>
+          <b-button :ref="row.item.id" variant="primary" size="sm" @click="edit(row.item.id)" v-b-modal.editModal
+            >觀看</b-button
+          >
         </template>
       </b-table>
     </b-card>

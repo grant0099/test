@@ -26,8 +26,8 @@ export default {
   data() {
     return {
       options: [
-        { text: "啟用", value: "true" },
-        { text: "停用", value: "false" },
+        { text: "啟用", value: true },
+        { text: "停用", value: false },
       ],
     };
   },
@@ -37,6 +37,7 @@ export default {
   methods: {
     save() {
       this.$store.dispatch("updateMember", this.memberObj);
+      this.$bvModal.hide("editModal");
     },
   },
 };
