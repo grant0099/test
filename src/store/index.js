@@ -76,8 +76,16 @@ export default new Vuex.Store({
           // console.log(result.data.data.chart);
           console.log(result);
           result.data.data.series[1].dashStyle = "ShortDash";
+          console.log(result.data.data.yaxis[0].title.text);
+          console.log(result.data.data.series[0].data);
+          const array = result.data.data.series[0].data;
+          let count = 0;
+          array.forEach((element) => {
+            count += element.y;
+          });
+          const title = "「" + result.data.data.series[0].name + "」 總聲量 " + count + "則";
           result.data.data.title = {
-            text: "title",
+            text: title,
             align: "left",
             style: {
               "font-size": "25px",
