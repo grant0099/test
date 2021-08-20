@@ -103,6 +103,11 @@ export default {
         title: "服務帳號",
         icon: "fa fa-user",
       },
+      {
+        href: "/Manage/HighchartResult",
+        title: "highchart",
+        icon: "fa fa-user",
+      },
     ];
     var decoded = jwtDecode(this.$cookies.get("data1"));
     this.adminName = decoded.userAccount;

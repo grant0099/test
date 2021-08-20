@@ -11,6 +11,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     items: [],
+    highchartData: {},
   },
   mutations: {
     setMember(state, items) {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
         items[i].id = i;
       }
       state.items = items;
+    },
+    setHighchartData(state, highchartData) {
+      state.highchartData = highchartData;
     },
     updateMember(state, memberItem) {
       const copyItems = JSON.parse(JSON.stringify(state.items));
@@ -34,6 +38,9 @@ export default new Vuex.Store({
     getItems(state) {
       return state.items;
     },
+    getHighchartData(state) {
+      return state.highchartData;
+    },
   },
   actions: {
     getMember(context) {
@@ -49,6 +56,46 @@ export default new Vuex.Store({
       })
         .then((result) => {
           context.commit("setMember", result.data.data);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    },
+    getHighchartData(context) {
+      const jwtToken = Vue.$cookies.get("data1");
+      Vue.axios({
+        method: "post",
+        baseURL: "https://release-test2.opview.com.tw",
+        url: "/eduApi/chart",
+        data: {
+          action: "query",
+        },
+        headers: { "Content-Type": "application/json", Authorization: "Bearer " + jwtToken },
+      })
+        .then((result) => {
+          // console.log(result.data.data.chart);
+          console.log(result);
+          result.data.data.series[1].dashStyle = "ShortDash";
+          result.data.data.title = {
+            text: "title",
+            align: "left",
+            style: {
+              "font-size": "25px",
+            },
+          };
+          result.data.data.plotOptions = {
+            series: {
+              cursor: "pointer",
+              point: {
+                events: {
+                  click: function() {
+                    Vue.swal("Category: " + this.category + ", value: " + this.y);
+                  },
+                },
+              },
+            },
+          };
+          context.commit("setHighchartData", result.data.data);
         })
         .catch((err) => {
           console.error(err);

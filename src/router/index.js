@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Login from "../views/Login.vue";
 // import AccountEditModal from "../components/manageAdmin/AccountEditModal.vue";
 import AccountList from "../views/manageAdmin/AccountList.vue";
+import HighchartResult from "../views/manageAdmin/HighchartResult.vue";
 import Manage from "../views/manageAdmin/Manage.vue";
 import VueCookies from "vue-cookies";
 
@@ -28,7 +29,10 @@ const routes = [
     path: "/Manage",
     name: "Manage",
     component: Manage,
-    children: [{ path: "AccountList", component: AccountList }],
+    children: [
+      { path: "AccountList", component: AccountList },
+      { path: "HighchartResult", component: HighchartResult },
+    ],
   },
 ];
 
