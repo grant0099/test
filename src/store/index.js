@@ -74,10 +74,10 @@ export default new Vuex.Store({
       })
         .then((result) => {
           // console.log(result.data.data.chart);
-          console.log(result);
+          // console.log(result);
           result.data.data.series[1].dashStyle = "ShortDash";
-          console.log(result.data.data.yaxis[0].title.text);
-          console.log(result.data.data.series[0].data);
+          // console.log(result.data.data.yaxis[0].title.text);
+          // console.log(result.data.data.series[0].data);
           const array = result.data.data.series[0].data;
           let count = 0;
           array.forEach((element) => {
