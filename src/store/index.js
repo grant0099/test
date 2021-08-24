@@ -84,13 +84,17 @@ export default new Vuex.Store({
               "font-size": "25px",
             },
           };
+
+          result.data.data.tooltip.formatter = function() {
+            return this.series.name + "<br>" + this.x + "日共" + this.y + "則";
+          };
           result.data.data.plotOptions = {
             series: {
               cursor: "pointer",
               point: {
                 events: {
                   click: function() {
-                    Vue.swal("Category: " + this.category + ", value: " + this.y);
+                    Vue.swal(this.series.name, this.category + "共" + this.y + "則");
                   },
                 },
               },
