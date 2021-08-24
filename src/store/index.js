@@ -3,9 +3,6 @@ import Vuex from "vuex";
 import axios from "axios";
 import VueAxios from "vue-axios";
 Vue.use(VueAxios, axios);
-// import createPersistedState from "vuex-persistedstate";
-// import Login from "../views/Login.vue";
-
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -73,11 +70,7 @@ export default new Vuex.Store({
         headers: { "Content-Type": "application/json", Authorization: "Bearer " + jwtToken },
       })
         .then((result) => {
-          // console.log(result.data.data.chart);
-          // console.log(result);
           result.data.data.series[1].dashStyle = "ShortDash";
-          // console.log(result.data.data.yaxis[0].title.text);
-          // console.log(result.data.data.series[0].data);
           const array = result.data.data.series[0].data;
           let count = 0;
           array.forEach((element) => {
