@@ -71,12 +71,30 @@ export default new Vuex.Store({
       })
         .then((result) => {
           result.data.data.series[1].dashStyle = "ShortDash";
+          result.data.data.series[1].showInLegend = false;
+
           const array = result.data.data.series[0].data;
+          const array2 = result.data.data.series[1].data;
           let count = 0;
+          let count2 = 0;
           array.forEach((element) => {
             count += element.y;
           });
-          const title = "「" + result.data.data.series[0].name + "」 總聲量 " + count + "則";
+          array2.forEach((element) => {
+            count2 += element.y;
+          });
+          const title =
+            "「" +
+            result.data.data.series[0].name +
+            "」 總聲量 " +
+            count +
+            "則" +
+            "<br>" +
+            "「" +
+            result.data.data.series[1].name +
+            "」 總聲量 " +
+            count2 +
+            "則";
           result.data.data.title = {
             text: title,
             align: "left",
@@ -96,6 +114,23 @@ export default new Vuex.Store({
                   click: function() {
                     Vue.swal(this.series.name, this.category + "共" + this.y + "則");
                   },
+                },
+              },
+            },
+            line: {
+              events: {
+                legendItemClick: function() {
+                  var series = this.chart.series;
+                  if (this.chart.restIsHidden) {
+                    series[0].setVisible(true, false);
+                    series[1].setVisible(true, false);
+                    this.chart.restIsHidden = false;
+                  } else {
+                    series[0].setVisible(false, false);
+                    series[1].setVisible(false, false);
+                    this.chart.restIsHidden = true;
+                  }
+                  return false;
                 },
               },
             },
