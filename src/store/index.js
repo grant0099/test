@@ -70,7 +70,7 @@ export default new Vuex.Store({
         headers: { "Content-Type": "application/json", Authorization: "Bearer " + jwtToken },
       })
         .then((result) => {
-          result.data.data.series[1].dashStyle = "ShortDash";
+          result.data.data.series[1].dashStyle = "shortdot";
           result.data.data.series[1].showInLegend = false;
 
           const array = result.data.data.series[0].data;
@@ -116,6 +116,9 @@ export default new Vuex.Store({
                   },
                 },
               },
+              marker: {
+                enabled: false,
+              }
             },
             line: {
               events: {
