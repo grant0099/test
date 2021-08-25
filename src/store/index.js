@@ -122,15 +122,12 @@ export default new Vuex.Store({
                 legendItemClick: function() {
                   var series = this.chart.series;
                   if (this.chart.restIsHidden) {
-                    series[0].setVisible(true, false);
                     series[1].setVisible(true, false);
                     this.chart.restIsHidden = false;
                   } else {
-                    series[0].setVisible(false, false);
                     series[1].setVisible(false, false);
                     this.chart.restIsHidden = true;
                   }
-                  return false;
                 },
               },
             },

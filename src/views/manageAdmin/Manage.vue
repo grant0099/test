@@ -106,7 +106,7 @@ export default {
       {
         href: "/Manage/HighchartResult",
         title: "highchart",
-        icon: "fa fa-user",
+        icon: "fas fa-braille",
       },
     ];
     var decoded = jwtDecode(this.$cookies.get("data1"));
