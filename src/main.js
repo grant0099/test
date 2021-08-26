@@ -9,7 +9,6 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import VueCookies from "vue-cookies";
-// import HighchartsVue from "highcharts-vue";
 import VueSweetalert2 from "vue-sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 import HighchartsVue from "highcharts-vue";
